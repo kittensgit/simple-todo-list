@@ -1,37 +1,12 @@
-import { useState } from 'react'
+import React from 'react';
 
-function ToDoForm({ addTask }) {
-    const [userInput, setUserInput] = useState('')
-    
-    const handleChange = (e) => {
-        setUserInput(e.currentTarget.value)
-    }
-    
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        addTask(userInput)
-        setUserInput("")
-    }
-
-    
-    const handleKeyPress = (e) => { // в событии есть свойство key
-        if(e.key === "Enter") {
-            handleSubmit(e)
-        }
-    }
-    
+const ToDoForm = () => {
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
-                value={userInput}
-                type="text"
-                onChange={handleChange}
-                onKeyDown={handleKeyPress}
-                placeholder="Введите значение..."
-            />        
-            <button>Сохранить</button>
-        </form>
-    )
-}
+        <div>
+            <input placeholder="enter task" />
+            <button>add</button>
+        </div>
+    );
+};
 
-export default ToDoForm
+export default ToDoForm;

@@ -1,17 +1,19 @@
-function ToDo({ todo, toggleTask, removeTask }) {
+import React from 'react';
+
+const ToDo = ({ id, task, complete, deleteTodo }) => {
     return (
-        <div key={todo.id} className="item-todo">
-            <div 
-                className={todo.complete ? "item-text strike" : "item-text"}
-                onClick={() => toggleTask(todo.id)}
-                >
-                {todo.task}
-            </div>
-            <div className="item-delete" onClick={() => removeTask(todo.id)}>
+        <div className="item-todo">
+            <div>{task}</div>
+            <div
+                onClick={() => {
+                    deleteTodo(id);
+                }}
+                className="item-delete"
+            >
                 X
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ToDo
+export default ToDo;
