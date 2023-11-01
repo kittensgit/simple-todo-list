@@ -1,19 +1,7 @@
 import React from 'react';
 
-const ToDo = ({ id, task, complete, deleteTodo }) => {
-    return (
-        <div className="item-todo">
-            <div>{task}</div>
-            <div
-                onClick={() => {
-                    deleteTodo(id);
-                }}
-                className="item-delete"
-            >
-                X
-            </div>
-        </div>
-    );
+const Todo = ({ tasks }) => {
+    return <div>{tasks}</div>;
 };
 
-export default ToDo;
+export default Todo;
