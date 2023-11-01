@@ -11,12 +11,19 @@ const TodoForm = ({ addTodo }) => {
         addTodo(value);
         setValue('');
     };
+
+    const handleEnter = (e) => {
+        if ((e.target.key = 'Enter')) {
+            handleAddTodo();
+        }
+    };
     return (
-        <div>
+        <div className="todoform">
             <input
                 onChange={handleChange}
                 value={value}
                 placeholder="enter task"
+                onKeyDown={handleEnter}
             />
             <button onClick={handleAddTodo}>add</button>
         </div>

@@ -4,18 +4,7 @@ import { v4 } from 'uuid';
 import TodoForm from './TodoForm';
 
 const App = () => {
-    const [todos, setTodos] = useState([
-        {
-            id: v4(),
-            tasks: 'to go to the gym',
-            status: false,
-        },
-        {
-            id: v4(),
-            tasks: 'to go to the store',
-            status: false,
-        },
-    ]);
+    const [todos, setTodos] = useState([]);
 
     const addTodo = (tasks) => {
         const newTodo = {
@@ -25,11 +14,20 @@ const App = () => {
         };
         setTodos([newTodo, ...todos]);
     };
+
+    const removeTodo = (id) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
+    };
     return (
         <div className="app">
             <TodoForm addTodo={addTodo} />
             {todos.map((todo) => (
-                <Todo tasks={todo.tasks} />
+                <Todo
+                    key={todo.id}
+                    id={todo.id}
+                    tasks={todo.tasks}
+                    removeTodo={removeTodo}
+                />
             ))}
         </div>
     );
