@@ -4,8 +4,10 @@ const TodoForm = ({ addTodo }) => {
     const [value, setValue] = useState('');
 
     const handleAddTodo = () => {
-        addTodo(value);
-        setValue('');
+        if (value !== '') {
+            addTodo(value);
+            setValue('');
+        }
     };
 
     const handleEnter = (e) => {

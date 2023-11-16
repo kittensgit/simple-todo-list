@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Todo from './Todo';
 import TodoForm from './TodoForm';
 import { v4 } from 'uuid';
+import TodoList from './TodoList';
 
 const App = () => {
     const [todos, setTodos] = useState([]);
@@ -16,12 +16,15 @@ const App = () => {
         console.log(todos);
     };
 
+    const deleteTodo = (id) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
+        console.log('gfgf');
+    };
+
     return (
         <div>
             <TodoForm addTodo={addTodo} />
-            {todos.map((todo) => (
-                <Todo key={todo.id} task={todo.task} />
-            ))}
+            <TodoList deleteTodo={deleteTodo} todos={todos} />
         </div>
     );
 };
