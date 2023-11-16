@@ -18,6 +18,15 @@ const App = () => {
     const removeTodo = (id) => {
         setTodos(todos.filter((todo) => todo.id !== id));
     };
+
+    const toggleTodo = (id) => {
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, status: !todo.status } : { ...todo }
+            )
+        );
+        console.log(todos);
+    };
     return (
         <div className="app">
             <TodoForm addTodo={addTodo} />
@@ -25,8 +34,10 @@ const App = () => {
                 <Todo
                     key={todo.id}
                     id={todo.id}
+                    status={todo.status}
                     tasks={todo.tasks}
                     removeTodo={removeTodo}
+                    toggleTodo={toggleTodo}
                 />
             ))}
         </div>

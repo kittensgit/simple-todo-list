@@ -13,15 +13,15 @@ const TodoForm = ({ addTodo }) => {
     };
 
     const handleEnter = (e) => {
-        if ((e.target.key = 'Enter')) {
+        if (e.key === 'Enter') {
             handleAddTodo();
         }
     };
     return (
         <div className="todoform">
             <input
-                onChange={handleChange}
                 value={value}
+                onChange={handleChange}
                 placeholder="enter task"
                 onKeyDown={handleEnter}
             />
