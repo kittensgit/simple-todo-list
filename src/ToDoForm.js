@@ -3,10 +3,6 @@ import React, { useState } from 'react';
 const TodoForm = ({ addTodo }) => {
     const [value, setValue] = useState('');
 
-    const handleChange = (e) => {
-        setValue(e.target.value);
-    };
-
     const handleAddTodo = () => {
         addTodo(value);
         setValue('');
@@ -18,10 +14,10 @@ const TodoForm = ({ addTodo }) => {
         }
     };
     return (
-        <div className="todoform">
+        <div>
             <input
                 value={value}
-                onChange={handleChange}
+                onChange={(e) => setValue(e.target.value)}
                 placeholder="enter task"
                 onKeyDown={handleEnter}
             />

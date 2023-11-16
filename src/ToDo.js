@@ -1,21 +1,10 @@
 import React from 'react';
 
-const Todo = ({ id, tasks, removeTodo, toggleTodo, status }) => {
+const Todo = ({ id, task, complete, toggleTodo }) => {
     return (
-        <div className="todo">
-            <div
-                onClick={() => toggleTodo(id)}
-                className={status ? 'complete' : ''}
-            >
-                {tasks}
-            </div>
-            <button
-                onClick={() => {
-                    removeTodo(id);
-                }}
-            >
-                delete
-            </button>
+        <div>
+            {task}
+            <button>delete</button>
         </div>
     );
 };
