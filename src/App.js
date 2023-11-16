@@ -21,10 +21,24 @@ const App = () => {
         console.log('gfgf');
     };
 
+    const toggleTodo = (id) => {
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id
+                    ? { ...todo, complete: !todo.complete }
+                    : { ...todo }
+            )
+        );
+    };
+
     return (
         <div>
             <TodoForm addTodo={addTodo} />
-            <TodoList deleteTodo={deleteTodo} todos={todos} />
+            <TodoList
+                toggleTodo={toggleTodo}
+                deleteTodo={deleteTodo}
+                todos={todos}
+            />
         </div>
     );
 };

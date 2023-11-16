@@ -3,7 +3,14 @@ import React from 'react';
 const Todo = ({ id, task, complete, toggleTodo, deleteTodo }) => {
     return (
         <div>
-            {task}
+            <div
+                onClick={() => {
+                    toggleTodo(id);
+                }}
+                className={complete ? 'complete' : ''}
+            >
+                {task}
+            </div>
             <button onClick={() => deleteTodo(id)}>delete</button>
         </div>
     );
